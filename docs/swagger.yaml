@@ -1,0 +1,427 @@
+definitions:
+  MNA-project_pkg_internal_pet.GeneralResponse:
+    properties:
+      age:
+        type: integer
+      birth_date:
+        type: string
+      breed:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      owner_id:
+        type: integer
+      owner_name:
+        type: string
+      register_date:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  MNA-project_pkg_internal_pet.Pets:
+    properties:
+      pets:
+        items:
+          $ref: '#/definitions/MNA-project_pkg_internal_pet.GeneralResponse'
+        type: array
+    type: object
+  MNA-project_pkg_internal_pet.RegisterRequest:
+    properties:
+      age:
+        type: integer
+      birth_date:
+        type: string
+      breed:
+        type: string
+      name:
+        type: string
+    type: object
+  MNA-project_pkg_internal_pet.UpdateRequest:
+    properties:
+      age:
+        type: integer
+      birth_date:
+        type: string
+      breed:
+        type: string
+      name:
+        type: string
+    type: object
+  MNA-project_pkg_internal_user.LoginRequest:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    required:
+    - email
+    - password
+    type: object
+  MNA-project_pkg_internal_user.LoginResponse:
+    properties:
+      email:
+        type: string
+      expires_at:
+        type: string
+      last_name:
+        type: string
+      name:
+        type: string
+      token:
+        type: string
+    type: object
+  MNA-project_pkg_internal_user.RegisterRequest:
+    properties:
+      email:
+        type: string
+      last_name:
+        type: string
+      name:
+        type: string
+      password:
+        type: string
+    required:
+    - email
+    - last_name
+    - name
+    - password
+    type: object
+  MNA-project_pkg_internal_user.RegisterResponse:
+    properties:
+      created_at:
+        type: string
+      email:
+        type: string
+      full_name:
+        type: string
+      id:
+        type: integer
+      last_name:
+        type: string
+      name:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  MNA-project_pkg_internal_user.Response:
+    properties:
+      created_at:
+        type: string
+      email:
+        type: string
+      id:
+        type: integer
+      last_login:
+        type: string
+      last_name:
+        type: string
+      name:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  MNA-project_pkg_internal_user.UpdateRequest:
+    properties:
+      email:
+        type: string
+      last_name:
+        type: string
+      name:
+        type: string
+    type: object
+  MNA-project_pkg_internal_user.Users:
+    properties:
+      users:
+        items:
+          $ref: '#/definitions/MNA-project_pkg_internal_user.Response'
+        type: array
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: A01794498@tec.mx
+    name: Daniel G_A
+    url: https://tec.mx/es
+  description: This is the API server for PetSys application.
+  termsOfService: http://swagger.io/terms/
+  title: PetSys
+  version: "1.0"
+paths:
+  /v1/pets:
+    get:
+      description: Get pets info by user
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/MNA-project_pkg_internal_pet.Pets'
+        "403":
+          description: Forbidden
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Get pets info by user
+      tags:
+      - pet
+    post:
+      description: Save a new user pet
+      parameters:
+      - description: Save request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/MNA-project_pkg_internal_pet.RegisterRequest'
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/MNA-project_pkg_internal_pet.GeneralResponse'
+        "403":
+          description: Forbidden
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Save Pet
+      tags:
+      - pet
+  /v1/pets/{petID}:
+    get:
+      description: Gets pet information
+      parameters:
+      - description: Pet ID
+        in: path
+        name: petID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/MNA-project_pkg_internal_pet.GeneralResponse'
+        "403":
+          description: Forbidden
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Gets pet information by ID
+      tags:
+      - pet
+    put:
+      description: Updates multiple fields from pet in the DB
+      parameters:
+      - description: Save request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/MNA-project_pkg_internal_pet.UpdateRequest'
+      - description: pet ID
+        in: path
+        name: petID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/MNA-project_pkg_internal_pet.GeneralResponse'
+        "403":
+          description: Forbidden
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Updates pet information
+      tags:
+      - pet
+  /v1/pets/{userID}:
+    delete:
+      description: Deletes pet by ID
+      parameters:
+      - description: User ID
+        in: path
+        name: userID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+        "403":
+          description: Forbidden
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Deletes a pet
+      tags:
+      - pet
+  /v1/users:
+    get:
+      description: Gets users saved
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/MNA-project_pkg_internal_user.Users'
+        "403":
+          description: Forbidden
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Gets all users
+      tags:
+      - user
+  /v1/users/{userID}:
+    delete:
+      description: Deletes user by ID
+      parameters:
+      - description: User ID
+        in: path
+        name: userID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+        "403":
+          description: Forbidden
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Deletes user
+      tags:
+      - user
+    get:
+      description: Gets user info with ID
+      parameters:
+      - description: User ID
+        in: path
+        name: userID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/MNA-project_pkg_internal_user.Response'
+        "403":
+          description: Forbidden
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Gets user info by ID
+      tags:
+      - user
+    put:
+      description: Updates multiple fields from user in the DB
+      parameters:
+      - description: Save request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/MNA-project_pkg_internal_user.UpdateRequest'
+      - description: User ID
+        in: path
+        name: userID
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/MNA-project_pkg_internal_user.Response'
+        "403":
+          description: Forbidden
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Updates user information
+      tags:
+      - user
+  /v1/users/login:
+    post:
+      description: Logins a user and returns a JWT
+      parameters:
+      - description: Login request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/MNA-project_pkg_internal_user.LoginRequest'
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/MNA-project_pkg_internal_user.LoginResponse'
+        "403":
+          description: Forbidden
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: User login
+      tags:
+      - user
+  /v1/users/signup:
+    post:
+      description: Register a User with email and password
+      parameters:
+      - description: Register request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/MNA-project_pkg_internal_user.RegisterRequest'
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/MNA-project_pkg_internal_user.RegisterResponse'
+        "403":
+          description: Forbidden
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: SignUp User
+      tags:
+      - user
+swagger: "2.0"

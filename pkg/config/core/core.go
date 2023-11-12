@@ -40,6 +40,7 @@ func Router() *echo.Echo {
 
 	router.Use(doJWTFilter())
 	router.Use(doLoggerFilter())
+	router.Use(middleware.CORS())
 
 	return router
 }

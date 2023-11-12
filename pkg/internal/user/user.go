@@ -52,6 +52,7 @@ type Response struct {
 }
 
 type LoginResponse struct {
+	ID        int64      `json:"id"`
 	Name      string     `json:"name"`
 	LastName  string     `json:"last_name"`
 	Email     string     `json:"email"`
@@ -80,6 +81,7 @@ func BuildRegisterResponse(user *model.User) *RegisterResponse {
 
 func BuildLoginResponse(user *model.User, expTime *time.Time, token string) *LoginResponse {
 	return &LoginResponse{
+		ID:        user.ID,
 		Name:      user.Name,
 		LastName:  user.LastName,
 		Email:     user.Email,

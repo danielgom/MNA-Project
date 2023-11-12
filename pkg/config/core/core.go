@@ -38,9 +38,14 @@ func Router() *echo.Echo {
 	router := initialiseAPI()
 	router.GET("/swagger/*", echoSwagger.WrapHandler)
 
+	router.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+		Skipper:      middleware.DefaultSkipper,
+		AllowOrigins: []string{"*"},
+		AllowMethods: []string{"*"},
+		AllowHeaders: []string{"*"},
+	}))
 	router.Use(doJWTFilter())
 	router.Use(doLoggerFilter())
-	router.Use(middleware.CORS())
 
 	return router
 }

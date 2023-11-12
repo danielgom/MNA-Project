@@ -55,12 +55,14 @@ func (p *petSvc) GetAllByUser(ctx context.Context, userID int64) ([]*pet.General
 
 func (p *petSvc) Save(ctx context.Context, req *pet.RegisterRequest, userID int64) (*pet.GeneralResponse, errors.CommonError) {
 	localTime := time.Now().Local()
+	t := time.Time(req.BirthDate)
+
 	newPet := &pm.Pet{
 		UserID:       userID,
 		Name:         req.Name,
 		Age:          req.Age,
 		Breed:        req.Breed,
-		BirthDate:    req.BirthDate,
+		BirthDate:    &t,
 		RegisterDate: &localTime,
 		UpdatedAt:    &localTime,
 	}
@@ -100,6 +102,7 @@ func (p *petSvc) DeleteById(ctx context.Context, petID int64, userID int64) erro
 }
 
 func buildPetResponse(p *pm.Pet, u *user.Response) *pet.GeneralResponse {
+	t := pet.BirthDate(*p.BirthDate)
 	return &pet.GeneralResponse{
 		ID:           p.ID,
 		OwnerName:    u.Name,
@@ -107,7 +110,7 @@ func buildPetResponse(p *pm.Pet, u *user.Response) *pet.GeneralResponse {
 		Name:         p.Name,
 		Age:          p.Age,
 		Breed:        p.Breed,
-		BirthDate:    p.BirthDate,
+		BirthDate:    t,
 		RegisterDate: p.RegisterDate,
 		UpdatedAt:    p.UpdatedAt,
 	}

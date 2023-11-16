@@ -69,6 +69,20 @@ CREATE TABLE dewormings
         on delete cascade on update cascade
 );
 
+CREATE TABLE surgeries
+(
+    id         bigserial primary key not null,
+    pet_id     int                   not null,
+    name       varchar               not null,
+    address    varchar(50)           not null,
+    vet_name   varchar(100)          not null,
+    comments   text                  not null,
+    date       date                  not null,
+    updated_at timestamptz           not null,
+    constraint fk_pet_deworming foreign key (pet_id) references pets (id)
+        on delete cascade on update cascade
+)
+
 
 
 

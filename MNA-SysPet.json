@@ -372,6 +372,368 @@
 					]
 				},
 				{
+					"name": "VetVisits",
+					"item": [
+						{
+							"name": "Save Vet Visit",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAwODg3OTYsImlhdCI6MTcwMDA4NTE5NiwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.V1J8pW_CVj2cv7LymL7M0jyb472DQNeWZOIn_ru9aMpUFFNa__uPGJFuNxvJD89eCmBJkGBS9-cQ75Lg4-mJBQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vet_name\": \"Rafael Gomez\",\n    \"address\": \"Direccion donde se visito el veterinario\",\n    \"reason\": \"Se siente mal y no quiere comer\",\n    \"comments\": \"Debe tomar medicamento dos veces al dia\",\n    \"date\": \"2020-11-05\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/v1/pets/2/vetVisits",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"pets",
+										"2",
+										"vetVisits"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Vet visit by Pet",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAxMDA2MjAsImlhdCI6MTcwMDA5NzAyMCwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.Gu2yIOPvXaV0vNHGocW6pL9UX-M_U58x_hfc7OQ3efthQ72ZjqYS5tcIl9xAip3GhqeWXAe02IWlCd_5UuY4PQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/pets/2/vetVisits",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"pets",
+										"2",
+										"vetVisits"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Vet visit by pet",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAwODg3OTYsImlhdCI6MTcwMDA4NTE5NiwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.V1J8pW_CVj2cv7LymL7M0jyb472DQNeWZOIn_ru9aMpUFFNa__uPGJFuNxvJD89eCmBJkGBS9-cQ75Lg4-mJBQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/pets/2/vetVisits/4",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"pets",
+										"2",
+										"vetVisits",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Vet VIsit",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAwODg3OTYsImlhdCI6MTcwMDA4NTE5NiwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.V1J8pW_CVj2cv7LymL7M0jyb472DQNeWZOIn_ru9aMpUFFNa__uPGJFuNxvJD89eCmBJkGBS9-cQ75Lg4-mJBQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/pets/2/vetVisits/2",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"pets",
+										"2",
+										"vetVisits",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Vet visit",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAwODg3OTYsImlhdCI6MTcwMDA4NTE5NiwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.V1J8pW_CVj2cv7LymL7M0jyb472DQNeWZOIn_ru9aMpUFFNa__uPGJFuNxvJD89eCmBJkGBS9-cQ75Lg4-mJBQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vet_name\": \"Rafael Gomez\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/v1/pets/2/vetVisits/3",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"pets",
+										"2",
+										"vetVisits",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Surgeries",
+					"item": [
+						{
+							"name": "Save Surgery",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAwODg3OTYsImlhdCI6MTcwMDA4NTE5NiwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.V1J8pW_CVj2cv7LymL7M0jyb472DQNeWZOIn_ru9aMpUFFNa__uPGJFuNxvJD89eCmBJkGBS9-cQ75Lg4-mJBQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vet_name\": \"Rafael Gomez\",\n    \"address\": \"Direccion donde se hizo la cirugia\",\n    \"name\": \"Cirugia de estomago\",\n    \"comments\": \"Debe tomar medicamentos por un mes\",\n    \"date\": \"2020-11-05\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/v1/pets/2/surgeries",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"pets",
+										"2",
+										"surgeries"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Surgeries byPet",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAxMDA2MjAsImlhdCI6MTcwMDA5NzAyMCwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.Gu2yIOPvXaV0vNHGocW6pL9UX-M_U58x_hfc7OQ3efthQ72ZjqYS5tcIl9xAip3GhqeWXAe02IWlCd_5UuY4PQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/pets/2/surgeries",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"pets",
+										"2",
+										"surgeries"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get  Surgery by pet",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAwODg3OTYsImlhdCI6MTcwMDA4NTE5NiwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.V1J8pW_CVj2cv7LymL7M0jyb472DQNeWZOIn_ru9aMpUFFNa__uPGJFuNxvJD89eCmBJkGBS9-cQ75Lg4-mJBQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/pets/2/surgeries/4",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"pets",
+										"2",
+										"surgeries",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Surgery",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAwODg3OTYsImlhdCI6MTcwMDA4NTE5NiwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.V1J8pW_CVj2cv7LymL7M0jyb472DQNeWZOIn_ru9aMpUFFNa__uPGJFuNxvJD89eCmBJkGBS9-cQ75Lg4-mJBQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/pets/2/surgeries/2",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"pets",
+										"2",
+										"surgeries",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Surger",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAwODg3OTYsImlhdCI6MTcwMDA4NTE5NiwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.V1J8pW_CVj2cv7LymL7M0jyb472DQNeWZOIn_ru9aMpUFFNa__uPGJFuNxvJD89eCmBJkGBS9-cQ75Lg4-mJBQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vet_name\": \"Rafael Gomez\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/v1/pets/2/surgeries/3",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"pets",
+										"2",
+										"surgeries",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Save Pet",
 					"request": {
 						"auth": {

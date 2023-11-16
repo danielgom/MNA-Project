@@ -29,10 +29,18 @@ import (
 	dewormingdb "MNA-project/pkg/internal/deworming/db"
 	dewormingservice "MNA-project/pkg/internal/deworming/service"
 
+	vetvisitsdb "MNA-project/pkg/internal/vet_visits/db"
+	vetvisitsservice "MNA-project/pkg/internal/vet_visits/service"
+
+	surgerydb "MNA-project/pkg/internal/surgeries/db"
+	surgeryservice "MNA-project/pkg/internal/surgeries/service"
+
 	dehandler "MNA-project/pkg/internal/deworming/routes"
 	pethandler "MNA-project/pkg/internal/pet/routes"
+	surhandler "MNA-project/pkg/internal/surgeries/routes"
 	userhandler "MNA-project/pkg/internal/user/routes"
 	vachandler "MNA-project/pkg/internal/vaccine/routes"
+	vethandler "MNA-project/pkg/internal/vet_visits/routes"
 )
 
 var (
@@ -165,21 +173,31 @@ func initialiseAPI() *echo.Echo {
 	petRepository := petdb.NewPetRepository(DBc)
 	vaccineRepository := vacdb.NewVaccineRepository(DBc)
 	dewormingRepository := dewormingdb.NewDewormingRepository(DBc)
+	vetVisitRepository := vetvisitsdb.NewVetVisitRepository(DBc)
+	surgeryRepository := surgerydb.NewSurgeryRepository(DBc)
 
 	userService := userservice.NewUserService(userRepository)
 	petService := petservice.NewPetService(petRepository, userService)
 	vacService := vaccineservice.NewVaccineService(vaccineRepository, petService)
 	dewormingService := dewormingservice.NewDewormingService(dewormingRepository, petService)
+	vetVisitService := vetvisitsservice.NewVetVisitService(vetVisitRepository, petService)
+	surService := surgeryservice.NewSurgeryService(surgeryRepository, petService)
 
 	petHandler := pethandler.NewHandler(petService)
 	userHandler := userhandler.NewHandler(userService)
 	vacHandler := vachandler.NewHandler(vacService)
 	deHandler := dehandler.NewHandler(dewormingService)
 
+	vetVisitHandler := vethandler.NewHandler(vetVisitService)
+	surgeryHandler := surhandler.NewHandler(surService)
+
 	userHandler.Register(router, context.Handler)
 	petHandler.Register(router, context.Handler)
 	vacHandler.Register(router, context.Handler)
 	deHandler.Register(router, context.Handler)
+
+	vetVisitHandler.Register(router, context.Handler)
+	surgeryHandler.Register(router, context.Handler)
 
 	return router
 }

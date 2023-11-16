@@ -53,9 +53,9 @@ func (r *userRepo) FindAll(ctx context.Context) ([]*model.User, errors.CommonErr
 // Save persists a user to the DB.
 func (r *userRepo) Save(ctx context.Context, user *model.User) (*model.User, errors.CommonError) {
 	row := r.DB.QueryRow(ctx, `INSERT INTO users("email", "password", "name", "last_name",
-                  "last_login", "created_at", updated_at) 
-		VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING id`,
-		user.Email, user.Password, user.Name, user.LastName, user.LastLogin, user.CreatedAt, user.UpdatedAt)
+                  "last_login", "address", "created_at", updated_at) 
+		VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id`,
+		user.Email, user.Password, user.Name, user.LastName, user.LastLogin, user.Address, user.CreatedAt, user.UpdatedAt)
 
 	saveErr := row.Scan(&user.ID)
 	if saveErr != nil {
@@ -135,6 +135,11 @@ func buildUpdateQuery(user *model.User) (string, []any) {
 		query += ", email=$" + strconv.Itoa(nextParam)
 		nextParam++
 		parameters = append(parameters, user.Email)
+	}
+	if user.Address != "" {
+		query += ", address=$" + strconv.Itoa(nextParam)
+		nextParam++
+		parameters = append(parameters, user.Address)
 	}
 
 	parameters = append(parameters, user.ID)

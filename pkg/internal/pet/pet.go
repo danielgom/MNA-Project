@@ -14,6 +14,9 @@ type RegisterRequest struct {
 	Name      string    `json:"name"`
 	Age       int8      `json:"age"`
 	Breed     string    `json:"breed"`
+	Type      string    `json:"type"`
+	Sex       string    `json:"sex"`
+	Color     string    `json:"color"`
 	BirthDate BirthDate `json:"birth_date"`
 }
 
@@ -22,6 +25,9 @@ type UpdateRequest struct {
 	UserID    int64      `json:"-"`
 	Age       int8       `json:"age"`
 	Breed     string     `json:"breed"`
+	Type      string     `json:"type"`
+	Sex       string     `json:"sex"`
+	Color     string     `json:"color"`
 	BirthDate *time.Time `json:"birth_date"`
 }
 
@@ -32,6 +38,9 @@ type GeneralResponse struct {
 	Name         string     `json:"name"`
 	Age          int8       `json:"age"`
 	Breed        string     `json:"breed"`
+	Type         string     `json:"type"`
+	Sex          string     `json:"sex"`
+	Color        string     `json:"color"`
 	BirthDate    BirthDate  `json:"birth_date"`
 	RegisterDate *time.Time `json:"register_date"`
 	UpdatedAt    *time.Time `json:"updated_at"`

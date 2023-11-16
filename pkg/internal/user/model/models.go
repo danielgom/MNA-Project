@@ -10,6 +10,7 @@ type User struct {
 	Name      string     `db:"name"`
 	LastName  string     `db:"last_name"`
 	Email     string     `db:"email"`
+	Address   string     `db:"address"`
 	LastLogin *time.Time `db:"last_login"`
 	CreatedAt *time.Time `db:"created_at"`
 	UpdatedAt *time.Time `db:"updated_at"`

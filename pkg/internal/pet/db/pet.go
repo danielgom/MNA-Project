@@ -55,9 +55,9 @@ func (r *petRepo) FindAllByUser(ctx context.Context, userID int64) ([]*model.Pet
 }
 
 func (r *petRepo) Save(ctx context.Context, pet *model.Pet) (*model.Pet, errors.CommonError) {
-	row := r.DB.QueryRow(ctx, `INSERT INTO pets(user_id, name, age, breed, birth_date, register_date, updated_at)
-		VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING id`, pet.UserID, pet.Name, pet.Age, pet.Breed, pet.BirthDate,
-		pet.RegisterDate, pet.UpdatedAt)
+	row := r.DB.QueryRow(ctx, `INSERT INTO pets(user_id, name, age, breed, type, sex, color, birth_date, register_date, updated_at)
+		VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING id`, pet.UserID, pet.Name, pet.Age, pet.Breed,
+		pet.Type, pet.Sex, pet.Color, pet.BirthDate, pet.RegisterDate, pet.UpdatedAt)
 
 	saveErr := row.Scan(&pet.ID)
 	if saveErr != nil {
@@ -117,6 +117,21 @@ func buildUpdateQuery(pet *model.Pet) (string, []any) {
 		query += ", breed=$" + strconv.Itoa(nextParam)
 		nextParam++
 		parameters = append(parameters, pet.Breed)
+	}
+	if pet.Type != "" {
+		query += ", type=$" + strconv.Itoa(nextParam)
+		nextParam++
+		parameters = append(parameters, pet.Type)
+	}
+	if pet.Sex != "" {
+		query += ", sex=$" + strconv.Itoa(nextParam)
+		nextParam++
+		parameters = append(parameters, pet.Sex)
+	}
+	if pet.Color != "" {
+		query += ", color=$" + strconv.Itoa(nextParam)
+		nextParam++
+		parameters = append(parameters, pet.Color)
 	}
 
 	parameters = append(parameters, pet.ID)

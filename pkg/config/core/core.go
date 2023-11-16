@@ -16,13 +16,23 @@ import (
 	"MNA-project/pkg/config"
 	"MNA-project/pkg/config/logger"
 	"MNA-project/pkg/context"
+
 	petdb "MNA-project/pkg/internal/pet/db"
 	petservice "MNA-project/pkg/internal/pet/service"
+
 	userdb "MNA-project/pkg/internal/user/db"
 	userservice "MNA-project/pkg/internal/user/service"
 
+	vacdb "MNA-project/pkg/internal/vaccine/db"
+	vaccineservice "MNA-project/pkg/internal/vaccine/service"
+
+	dewormingdb "MNA-project/pkg/internal/deworming/db"
+	dewormingservice "MNA-project/pkg/internal/deworming/service"
+
+	dehandler "MNA-project/pkg/internal/deworming/routes"
 	pethandler "MNA-project/pkg/internal/pet/routes"
 	userhandler "MNA-project/pkg/internal/user/routes"
+	vachandler "MNA-project/pkg/internal/vaccine/routes"
 )
 
 var (
@@ -153,15 +163,23 @@ func initialiseAPI() *echo.Echo {
 
 	userRepository := userdb.NewUserRepository(DBc)
 	petRepository := petdb.NewPetRepository(DBc)
+	vaccineRepository := vacdb.NewVaccineRepository(DBc)
+	dewormingRepository := dewormingdb.NewDewormingRepository(DBc)
 
 	userService := userservice.NewUserService(userRepository)
 	petService := petservice.NewPetService(petRepository, userService)
+	vacService := vaccineservice.NewVaccineService(vaccineRepository, petService)
+	dewormingService := dewormingservice.NewDewormingService(dewormingRepository, petService)
 
 	petHandler := pethandler.NewHandler(petService)
 	userHandler := userhandler.NewHandler(userService)
+	vacHandler := vachandler.NewHandler(vacService)
+	deHandler := dehandler.NewHandler(dewormingService)
 
 	userHandler.Register(router, context.Handler)
 	petHandler.Register(router, context.Handler)
+	vacHandler.Register(router, context.Handler)
+	deHandler.Register(router, context.Handler)
 
 	return router
 }

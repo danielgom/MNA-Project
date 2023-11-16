@@ -10,6 +10,368 @@
 			"name": "Pet",
 			"item": [
 				{
+					"name": "Vaccines",
+					"item": [
+						{
+							"name": "Save Vaccine",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAwODg3OTYsImlhdCI6MTcwMDA4NTE5NiwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.V1J8pW_CVj2cv7LymL7M0jyb472DQNeWZOIn_ru9aMpUFFNa__uPGJFuNxvJD89eCmBJkGBS9-cQ75Lg4-mJBQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"type\": \"Rabia\",\n    \"vet_name\": \"Luis Miguel\",\n    \"address\": \"Direccion donde se puso la vacuna\",\n    \"date\": \"2020-11-05\",\n    \"next_date\": \"2020-12-05\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/v1/pets/2/vaccines",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"pets",
+										"2",
+										"vaccines"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Vaccines by Pet",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAxMDA2MjAsImlhdCI6MTcwMDA5NzAyMCwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.Gu2yIOPvXaV0vNHGocW6pL9UX-M_U58x_hfc7OQ3efthQ72ZjqYS5tcIl9xAip3GhqeWXAe02IWlCd_5UuY4PQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/pets/2/vaccines",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"pets",
+										"2",
+										"vaccines"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Single vaccine information by pet",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAwODg3OTYsImlhdCI6MTcwMDA4NTE5NiwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.V1J8pW_CVj2cv7LymL7M0jyb472DQNeWZOIn_ru9aMpUFFNa__uPGJFuNxvJD89eCmBJkGBS9-cQ75Lg4-mJBQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/pets/2/vaccines/4",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"pets",
+										"2",
+										"vaccines",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Vaccine",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAwODg3OTYsImlhdCI6MTcwMDA4NTE5NiwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.V1J8pW_CVj2cv7LymL7M0jyb472DQNeWZOIn_ru9aMpUFFNa__uPGJFuNxvJD89eCmBJkGBS9-cQ75Lg4-mJBQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/pets/2/vaccines/2",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"pets",
+										"2",
+										"vaccines",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Vaccine",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAwODg3OTYsImlhdCI6MTcwMDA4NTE5NiwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.V1J8pW_CVj2cv7LymL7M0jyb472DQNeWZOIn_ru9aMpUFFNa__uPGJFuNxvJD89eCmBJkGBS9-cQ75Lg4-mJBQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"type\": \"Rabia Fuerte\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/v1/pets/2/vaccines/3",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"pets",
+										"2",
+										"vaccines",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Dewormings",
+					"item": [
+						{
+							"name": "Save Deworming",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAxMDA2MjAsImlhdCI6MTcwMDA5NzAyMCwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.Gu2yIOPvXaV0vNHGocW6pL9UX-M_U58x_hfc7OQ3efthQ72ZjqYS5tcIl9xAip3GhqeWXAe02IWlCd_5UuY4PQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vet_name\": \"Luis Miguel\",\n    \"address\": \"Direccion donde se hizo la desparasitacion\",\n    \"date\": \"2020-11-05\",\n    \"next_date\": \"2020-12-05\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/v1/pets/2/dewormings",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"pets",
+										"2",
+										"dewormings"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Dewormings by Pet",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAxMDA2MjAsImlhdCI6MTcwMDA5NzAyMCwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.Gu2yIOPvXaV0vNHGocW6pL9UX-M_U58x_hfc7OQ3efthQ72ZjqYS5tcIl9xAip3GhqeWXAe02IWlCd_5UuY4PQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/pets/2/dewormings",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"pets",
+										"2",
+										"dewormings"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Single Deworming information by pet",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAxMDA2MjAsImlhdCI6MTcwMDA5NzAyMCwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.Gu2yIOPvXaV0vNHGocW6pL9UX-M_U58x_hfc7OQ3efthQ72ZjqYS5tcIl9xAip3GhqeWXAe02IWlCd_5UuY4PQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/pets/2/dewormings/2",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"pets",
+										"2",
+										"dewormings",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Deworming",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAxMDA2MjAsImlhdCI6MTcwMDA5NzAyMCwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.Gu2yIOPvXaV0vNHGocW6pL9UX-M_U58x_hfc7OQ3efthQ72ZjqYS5tcIl9xAip3GhqeWXAe02IWlCd_5UuY4PQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/pets/2/dewormings/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"pets",
+										"2",
+										"dewormings",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Deworming",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAxMDA2MjAsImlhdCI6MTcwMDA5NzAyMCwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.Gu2yIOPvXaV0vNHGocW6pL9UX-M_U58x_hfc7OQ3efthQ72ZjqYS5tcIl9xAip3GhqeWXAe02IWlCd_5UuY4PQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vet_name\": \"Rafael Sanchez\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/v1/pets/2/dewormings/3",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"pets",
+										"2",
+										"dewormings",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Save Pet",
 					"request": {
 						"auth": {
@@ -17,7 +379,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTkyMjk3ODYsImlhdCI6MTY5OTIyNjE4NiwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjIifQ.vS4ot0Tcz2vSG2iynm2k1a9Y8gHssPc2hfAboVLSz8WKSGzkif1AWUCH-5pBJ_zGD9sjKJxEM39OOVQVbwwvkQ",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAwODg3OTYsImlhdCI6MTcwMDA4NTE5NiwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.V1J8pW_CVj2cv7LymL7M0jyb472DQNeWZOIn_ru9aMpUFFNa__uPGJFuNxvJD89eCmBJkGBS9-cQ75Lg4-mJBQ",
 									"type": "string"
 								}
 							]
@@ -26,7 +388,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Conde\",\n    \"age\": 11,\n    \"breed\": \"Sharpey\",\n    \"birth_date\": \"2016-11-05T18:20:19.186932-06:00\"\n}",
+							"raw": "{\n    \"name\": \"Aurum\",\n    \"age\": 2,\n    \"breed\": \"Mestizo\",\n    \"type\": \"Gato\",\n    \"sex\": \"M\",\n    \"color\": \"Brown\",\n    \"birth_date\": \"2020-11-05\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -34,14 +396,15 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/v1/pets",
+							"raw": "localhost:8080/v1/pets/2",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"v1",
-								"pets"
+								"pets",
+								"2"
 							]
 						}
 					},
@@ -55,7 +418,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTkyMzAwMTksImlhdCI6MTY5OTIyNjQxOSwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjIifQ.lZLdPeSTbiNG4Bi63YSNzQMYeh9dsoT6lirOJ3iPzv_HGRntxUQY_w8DvfcGl4WfKEqEZR-pwCbirsl7tgRhxw",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAwODg3OTYsImlhdCI6MTcwMDA4NTE5NiwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.V1J8pW_CVj2cv7LymL7M0jyb472DQNeWZOIn_ru9aMpUFFNa__uPGJFuNxvJD89eCmBJkGBS9-cQ75Lg4-mJBQ",
 									"type": "string"
 								}
 							]
@@ -84,7 +447,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTkyMzAwMTksImlhdCI6MTY5OTIyNjQxOSwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjIifQ.lZLdPeSTbiNG4Bi63YSNzQMYeh9dsoT6lirOJ3iPzv_HGRntxUQY_w8DvfcGl4WfKEqEZR-pwCbirsl7tgRhxw",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAwODg3OTYsImlhdCI6MTcwMDA4NTE5NiwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.V1J8pW_CVj2cv7LymL7M0jyb472DQNeWZOIn_ru9aMpUFFNa__uPGJFuNxvJD89eCmBJkGBS9-cQ75Lg4-mJBQ",
 									"type": "string"
 								}
 							]
@@ -92,7 +455,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/v1/pets/19",
+							"raw": "localhost:8080/v1/pets/2",
 							"host": [
 								"localhost"
 							],
@@ -100,7 +463,7 @@
 							"path": [
 								"v1",
 								"pets",
-								"19"
+								"2"
 							]
 						}
 					},
@@ -114,32 +477,12 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTkyMzAwMTksImlhdCI6MTY5OTIyNjQxOSwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjIifQ.lZLdPeSTbiNG4Bi63YSNzQMYeh9dsoT6lirOJ3iPzv_HGRntxUQY_w8DvfcGl4WfKEqEZR-pwCbirsl7tgRhxw",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAwODg3OTYsImlhdCI6MTcwMDA4NTE5NiwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.V1J8pW_CVj2cv7LymL7M0jyb472DQNeWZOIn_ru9aMpUFFNa__uPGJFuNxvJD89eCmBJkGBS9-cQ75Lg4-mJBQ",
 									"type": "string"
 								}
 							]
 						},
 						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/v1/pets/17",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"v1",
-								"pets",
-								"17"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update pet",
-					"request": {
-						"method": "PUT",
 						"header": [],
 						"url": {
 							"raw": "localhost:8080/v1/pets/1",
@@ -155,6 +498,45 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Update pet",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAwODg3OTYsImlhdCI6MTcwMDA4NTE5NiwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.V1J8pW_CVj2cv7LymL7M0jyb472DQNeWZOIn_ru9aMpUFFNa__uPGJFuNxvJD89eCmBJkGBS9-cQ75Lg4-mJBQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"age\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/pets/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"pets",
+								"2"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -165,7 +547,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"password\": \"mypass\",\n    \"email\": \"someuser@hotmail.com\",\n    \"name\": \"Daniel\",\n    \"last_name\": \"Gomez\"\n}",
+					"raw": "{\n    \"password\": \"Pass1234@\",\n    \"email\": \"usuario1@hotmail.com\",\n    \"name\": \"Primer usuario\",\n    \"last_name\": \"Apellido\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -190,14 +572,46 @@
 		{
 			"name": "Get User By Id",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTk3Mzc2NTEsImlhdCI6MTY5OTczNDA1MSwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjIifQ.MLr7cIcAQ6yj3JPt-Cj6SI65BzvViWN90V8dD7zJkZ8B4pQ68vkOucDgbt6ANF7dBXKK3lfEN-GU7kmDo28BKQ",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/v1/users/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"users",
+						"1"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "Get All users",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDAxMDA2MjAsImlhdCI6MTcwMDA5NzAyMCwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.Gu2yIOPvXaV0vNHGocW6pL9UX-M_U58x_hfc7OQ3efthQ72ZjqYS5tcIl9xAip3GhqeWXAe02IWlCd_5UuY4PQ",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -237,11 +651,21 @@
 		{
 			"name": "Update User",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTk3NDIxMjYsImlhdCI6MTY5OTczODUyNiwiaXNzIjoiU3lzUGV0LUFQSSIsInN1YiI6IjEifQ.EXg24HesVhb94ftJU7fXRtMHvsaRZawPXvLghbIP5nJE97gle6nh715mrAQJhuvXhUVnCkQV726DLaFikVYPSA",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\": \"usuario2@outlook.com\"\n}",
+					"raw": "{\n    \"last_name\": \"GoAD2\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -249,7 +673,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/v1/users/2",
+					"raw": "localhost:8080/v1/users/1",
 					"host": [
 						"localhost"
 					],
@@ -257,7 +681,7 @@
 					"path": [
 						"v1",
 						"users",
-						"2"
+						"1"
 					]
 				}
 			},
@@ -273,7 +697,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\": \"someuser@hotmail.com\",\n    \"password\": \"mypass\"\n}",
+					"raw": "{\n    \"email\": \"usuario1@hotmail.com\",\n    \"password\": \"Pass1234@\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
